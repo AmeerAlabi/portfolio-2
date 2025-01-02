@@ -1,6 +1,4 @@
 'use client'
-
-import { useState, useEffect } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { Rocket, Zap, Globe, Code, Mail, ImageIcon, User } from 'lucide-react'
 import HolographicCard from '@/components/ui/HolographicCard'
@@ -8,7 +6,6 @@ import ProjectShowcase from '@/components/ui/ProjectShowcase'
 import GallerySection from '@/components/ui/GallerySection'
 import AboutMe from '@/components/ui/AboutMe'
 import ContactForm from '@/components/ui/ContactForm'
-import { Menu, X } from 'lucide-react';  // Importing Lucide icons
 import Navbar from '@/components/ui/Navbar'
 
 
@@ -38,20 +35,9 @@ function StarryBackground() {
   )
 }
 
-
-
-
-
 export default function FuturisticSpacePortfolio() {
-  const [scrollY, setScrollY] = useState(0)
   const { scrollYProgress } = useScroll()
   const yPosAnim = useTransform(scrollYProgress, [0, 1], [0, -1000])
-
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY)
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
 
   return (
     <div className="bg-black text-white min-h-screen">
@@ -98,14 +84,13 @@ export default function FuturisticSpacePortfolio() {
           <ContactForm />
         </section>
 
-        <section id="gallery" className=" bg-gray-800 bg-opacity-80 p-8">
+        <section id="gallery" className="bg-gray-800 bg-opacity-80 p-8">
           <h2 className="text-3xl font-bold mb-8 text-center flex items-center justify-center">
             <ImageIcon className="w-8 h-8 mr-2 text-green-400" />
             Technologies Gallery 
           </h2>
           <GallerySection />
         </section>
-        
       </motion.div>
     </div>
   )

@@ -34,7 +34,7 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="w-full bg-gradient-to-r from-gray-900 to-gray-800 py-4 px-4 md:px-6">
+    <footer className="w-full bg-gradient-to-r absolute from-gray-900 to-gray-800 py-4 px-4 md:px-6">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           {/* Left side - Copyright */}
@@ -45,7 +45,7 @@ const Footer: React.FC = () => {
               </span>
             </div>
             <p className="text-sm text-gray-400">
-              © {currentYear} All rights reserved
+               {currentYear} All rights reserved
             </p>
           </div>
 

@@ -13,7 +13,7 @@ const images = [
 
 export default function GallerySection() {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+    <div className="grid grid-cols-2 h-[900px] md:grid-cols-3 gap-4">
       {images.map((src, index) => (
         <motion.div
           key={index}
