@@ -1,4 +1,5 @@
 'use client'
+
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { Rocket, Zap, Globe, Code, Mail, ImageIcon, User } from 'lucide-react'
 import HolographicCard from '@/components/ui/HolographicCard'
@@ -7,14 +8,28 @@ import GallerySection from '@/components/ui/GallerySection'
 import AboutMe from '@/components/ui/AboutMe'
 import ContactForm from '@/components/ui/ContactForm'
 import Navbar from '@/components/ui/Navbar'
+import { useEffect, useState } from 'react'
 
+interface Star {
+  x: number;
+  y: number;
+  size: number;
+}
 
 function StarryBackground() {
-  const stars = Array.from({ length: 1000 }, () => ({
-    x: Math.random() * window.innerWidth,
-    y: Math.random() * window.innerHeight,
-    size: Math.random() * 2 + 1,
-  }))
+  const [stars, setStars] = useState<Star[]>([])
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      // This code only runs on the client side
+      const newStars: Star[] = Array.from({ length: 1000 }, () => ({
+        x: Math.random() * window.innerWidth,
+        y: Math.random() * window.innerHeight,
+        size: Math.random() * 2 + 1,
+      }))
+      setStars(newStars)
+    }
+  }, []) // Empty dependency array ensures this runs only once after mount
 
   return (
     <div className="fixed top-0 left-0 w-full h-full overflow-hidden">
